@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Virtual Piano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="white-keys">
+            <kbd>A</kbd>
+            <kbd>S</kbd>
+            <kbd>D</kbd>
+            <kbd>F</kbd>
+            <kbd>G</kbd>
+            <kbd>H</kbd>
+            <kbd>J</kbd>
+        </div>
+        <div class="black-keys">
+            <kbd class="mr1">W</kbd>
+            <kbd class="mr1 mr2">E</kbd>
+            <kbd class="mr1">T</kbd>
+            <kbd class="mr1">Y</kbd>
+            <kbd class="mr1">U</kbd>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("keydown", function(event) {
+            if(event.code == "KeyA" || event.code == "KeyS" ||
+                event.code == "KeyD" || event.code == "KeyF" ||
+                event.code == "KeyG" || event.code == "KeyH" || event.code == "KeyJ" ){
+                let audioFile = new Audio("white_keys/"+event.key+".mp3");
+                audioFile.play();
+            }else if(event.code == "KeyW" || event.code == "KeyE" ||
+                event.code == "KeyT" || event.code == "KeyY" || event.code == "KeyU")
+            {
+                let audioFile = new Audio("black_keys/"+event.key+".mp3");
+                audioFile.play();
+            }
+            else {
+                console.log("Incorrect Key.")
+            }
+        });
+    </script>
+</body>
+</html>
